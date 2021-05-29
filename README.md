@@ -101,10 +101,9 @@
      docker-compose -f src/main/docker/keycloak.yml up <br>
  
  
- - Link para demonstração usando JWT
- 
+ - Link para demonstração usando JWT + GATEWAY
     https://www.loom.com/share/19ae6a31a2234d8891ac1452e212447d
     
     
- - Link para demonstração usando KeyClock
- 
+ - Link para demonstração usando KeyClock + GATEWAY
+    https://www.loom.com/share/72a84d01c5724910a0665941dfd4f9be
