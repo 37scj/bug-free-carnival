@@ -4,6 +4,7 @@
     o retrabalho de configurações de projeto , evitar repetições de cruds etc..
 
    > Link da aplicação : http://jhipsterfiap.ddns.net:8080
+   > http://ec2-34-239-159-53.compute-1.amazonaws.com:8080 - Sem Gateway
    
 # J-Hipster project
 
@@ -15,7 +16,7 @@
     
  > <p> Backend <br>
     - Spring WebFlux
-    - Spring Security (JWT)
+    - Spring Security (JWT/KeyClock)
    </p>
   
  > <p>Front-end/tests<br>
@@ -23,9 +24,28 @@
     - Cypress
    </p>
     
-
   
-# Exemplo de utilização da API - GATEWAY URLS:
+# Exemplo de utilização da API KeyClock(oauth2) - GATEWAY URLS:
+  
+  Autentificação do keyClock
+  
+         curl --location --request POST 'http://ec2-35-175-122-255.compute-1.amazonaws.com:9080/auth/realms/jhipster/protocol/openid-connect/token' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+        --data-urlencode 'username=user' \
+        --data-urlencode 'password=user' \
+        --data-urlencode 'grant_type=password' \
+        --data-urlencode 'client_id=web_app'
+  
+
+  Listando os Sensores
+
+        curl --location --request GET 'https://heijej8o46.execute-api.us-east-1.amazonaws.com/api/sensors' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTYyMTI4Mzg3Mn0.0CewoKZ0sceQzCSFPcaDAPydin0QSpn5u4UCpry4epTy4grEj_xgmSVt3ejeN6QCEas8CALfkPsN0qRL5UEsA' \
+        --header 'Cookie: XSRF-TOKEN=cd31d24a-f7a0-4c40-b15e-a3df3deaaacd' \
+        --data-raw ''
+  
+# Exemplo de utilização da API JWT - GATEWAY URLS:
 
     # Autentificação
     
@@ -52,11 +72,16 @@
  > 2 - Configure o seu banco de dados utilizando as propriedades da aplicação <br>
  > 3 - Inicialize o KeyClock (Defina o profile de dev na hora de inicializar o maven caso for rodar local)
          
-        docker-compose -f /src/main/docker/keyclock.yml up -d
+        docker-compose -f src/main/docker/app.yml up (Para subir toda a aplicação)
+        
+        Subindo apenas o Keyclock
+        
+        docker-compose -f /src/main/docker/keyclock.yml up -d 
+        
+        Subindo apenas o backend
+        
+        ./mvnw -DskipTests -Dspring.profiles.active={prod} <- Aqui voce deve especificar seu o ambiente que deseja usar (prod,dev)
          
- > 3 - Inicialize a aplicação <br>
-     
-       ./mvn -Dspring.profiles.active={nome do propertie}
  
  # O'que foi configurado na ec2 ?
  
@@ -84,6 +109,11 @@
      docker-compose -f src/main/docker/keycloak.yml up <br>
  
  
- - Link para demonstração
+ - Link para demonstração usando JWT
+ 
+    https://www.loom.com/share/19ae6a31a2234d8891ac1452e212447d
+    
+    
+ - Link para demonstração usando KeyClock
  
     https://www.loom.com/share/19ae6a31a2234d8891ac1452e212447d
