@@ -2,9 +2,6 @@
     
     Projeto voltado para testar a construção de aplicações web rapidamente utlizando J-hipster , pensando em reduzir
     o retrabalho de configurações de projeto , evitar repetições de cruds etc..
-
-   > Link da aplicação : http://jhipsterfiap.ddns.net:8080
-   > http://ec2-34-239-159-53.compute-1.amazonaws.com:8080 - Sem Gateway
    
 # J-Hipster project
 
