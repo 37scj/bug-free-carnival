@@ -25,8 +25,9 @@
    </p>
     
   
-# Exemplo de utilização da API KeyClock(oauth2) - GATEWAY URLS:
+# Exemplo de utilização da API KeyClock(oauth2)
   
+  Endpoints keyClock : http://ec2-35-175-122-255.compute-1.amazonaws.com:8080/auth/realms/jhipster/.well-known/openid-configuration
   Autentificação do keyClock
   
          curl --location --request POST 'http://ec2-35-175-122-255.compute-1.amazonaws.com:9080/auth/realms/jhipster/protocol/openid-connect/token' \
@@ -38,12 +39,6 @@
         --data-urlencode 'client_id=web_app'
   
 
-  Listando os Sensores
-
-        curl --location --request GET 'https://heijej8o46.execute-api.us-east-1.amazonaws.com/api/sensors' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTYyMTI4Mzg3Mn0.0CewoKZ0sceQzCSFPcaDAPydin0QSpn5u4UCpry4epTy4grEj_xgmSVt3ejeN6QCEas8CALfkPsN0qRL5UEsA' \
-        --header 'Cookie: XSRF-TOKEN=cd31d24a-f7a0-4c40-b15e-a3df3deaaacd' \
-        --data-raw ''
   
 # Exemplo de utilização da API JWT - GATEWAY URLS:
 
@@ -116,4 +111,3 @@
     
  - Link para demonstração usando KeyClock
  
-    https://www.loom.com/share/19ae6a31a2234d8891ac1452e212447d
